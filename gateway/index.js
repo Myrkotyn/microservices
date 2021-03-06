@@ -4,7 +4,8 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const cacheLink = "http://localhost:3010/exp";
+const cacheLink = "http://cache:3010/exp";
+const port = 3001;
 
 app.post("/api/exp", async (req, res, next) => {
   const expressions = req.body.expressions;
@@ -16,4 +17,7 @@ app.post("/api/exp", async (req, res, next) => {
 
   res.json(result);
 });
-app.listen(3001);
+
+app.listen(port, () => {
+    console.log(`Your app listening at http://localhost:${port}`)
+});
