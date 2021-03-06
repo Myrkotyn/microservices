@@ -1,15 +1,19 @@
 const express = require("express");
-const { createProxyMiddleware } = require("http-proxy-middleware");
-
-const options = {
-  target: "http://localhost:3010",
-  pathRewrite: {
-    '/api/exp': '/exp',
-  },
-};
-
-const apiProxy = createProxyMiddleware(options);
+const axios = require("axios");
 
 const app = express();
-app.use("/api", apiProxy);
+app.use(express.json());
+
+const cacheLink = "http://localhost:3010/exp";
+
+app.post("/api/exp", async (req, res, next) => {
+  const expressions = req.body.expressions;
+
+  const promises = expressions.map(exp => {
+    return axios.post(cacheLink, { expression: exp });
+  });
+  const result = (await Promise.all(promises)).map(r => r.data);
+
+  res.json(result);
+});
 app.listen(3001);
