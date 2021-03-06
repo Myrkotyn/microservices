@@ -4,7 +4,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const cacheLink = "http://localhost:3010/exp";
+const cacheLink = "http://cache:3010/exp";
 
 app.post("/api/exp", async (req, res, next) => {
   const expressions = req.body.expressions;
