@@ -6,8 +6,7 @@ const app = express();
 const nodeCache = new NodeCache();
 
 const port = 3010;
-// const calculateExpressionLink = "http://calculator:3000/calculate";
-const calculateExpressionLink = "http://localhost:3000/calculate";
+const calculateExpressionLink = "http://calculator:3000/calculate";
 
 app.use(express.json());
 

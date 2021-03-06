@@ -2,3 +2,8 @@
 /cache/node_modules/
 /calc/node_modules/
 /gateway/node_modules/
+
+package-lock.json
+/cache/package-lock.json
+/calc/package-lock.json
+/gateway/package-lock.json
