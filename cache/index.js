@@ -35,5 +35,5 @@ app.post("/exp", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Cache app listening at http://localhost:${port}`);
+  console.log(`Cache app listening at http://cache:${port}`);
 });
